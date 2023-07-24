@@ -101,7 +101,7 @@ $ A\geq0,B\leq 0$，大于等于0的数减去小于等于0的数必大于等于0
 
 且每个样本均有$Q_i(z^{(i)})$的概率服从一个二维高斯分布，二维高斯密度为：
 
-$\varphi(x^{(1)},x^{(2)})=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}exp\left\{-\frac{1}{2(1-\rho^2)}\big[\frac{(x^{(1)}-u^{(1)})^2}{\sigma_1^2}-2\rho\frac{(x^{(1)}-u^{(1)})(x^{(2)}-u^{(2)})}{\sigma_1\sigma_2}+\frac{(x^{(2)}-u^{(2)})^2}{\sigma_2^2}\big]\right\}$
+$\varphi(x^{(1)},x^{(2)})=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}exp\{-\frac{1}{2(1-\rho^2)}\big[\frac{(x^{(1)}-u^{(1)})^2}{\sigma_1^2}-2\rho\frac{(x^{(1)}-u^{(1)})(x^{(2)}-u^{(2)})}{\sigma_1\sigma_2}+\frac{(x^{(2)}-u^{(2)})^2}{\sigma_2^2}\big]\}$
 
 加入隐变量的最大似然过程为：
 
