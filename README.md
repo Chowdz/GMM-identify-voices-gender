@@ -31,7 +31,7 @@ $ \hat{\theta}=\mathop{argmax}\limits_{\theta} \sum_{i=1}^n \sum_{z^{(i)}}Q_i(z^
 
 But note that we are here if and only if the $Jensen$ inequality is true, that is, $P(X=EX)=1$, that is, when $X$ is considered to be a constant, put it here, that is, $\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$ ($c$ is a constant), $L(\theta)=\sum_{i=1}^n ln[E \frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}]\geq\sum_{i=1}^n Eln\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$, if we maximize $L(\theta)$, by maximizing the right half of the formula That is to maximize the lower bound of $L(\theta)$, it may not be possible to find the maximum value of $L(\theta)$, unless the equal sign is established, that is, $\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$, which is actually the $E$ step in the $EM$ algorithm.
 
-If you define $\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$, $p(x^{(i)},z^{(i)},\theta)=c\ast Q_i(z^{(i)})$, sum $z^{(i)}$ on both sides, $\therefore \sum_{z^{(i) }}p(x^{(i)},z^{(i)},\theta)=c\ast \sum_{z^{(i)}}Q_i(z^{(i)})=c$
+If you define $\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$, $p(x^{(i)},z^{(i)},\theta)=c\ast Q_i(z^{(i)})$, sum $z^{(i)}$ on both sides, $\sum_{z^{(i) }}p(x^{(i)},z^{(i)},\theta)=c\ast \sum_{z^{(i)}}Q_i(z^{(i)})=c$
 
 $ \frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=\sum_{z^{(i)}}p(x^{(i)},z^{(i)},\theta) , Q_i(z^{(i)})=\frac{p(x^{(i)},z^{(i)},\theta) }{\sum_{z^{(i)}}p(x^{(i)},z^{(i)},\theta)}=\frac{p(x^{(i)},z^{(i)},\theta)}{\sum_{z^{(i)}}p(z^{(i)})p(x^{(i)},\theta|z^{(i)})}=p(z^{(i) }|x^{(i)},\theta)$
 
