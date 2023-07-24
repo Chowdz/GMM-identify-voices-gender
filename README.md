@@ -17,7 +17,7 @@ Then there is $\sum_{z^{(i)}}Q_i(z^{(i)})=1$，and for solving $\theta$，$z$ is
 
 $\hat{\theta}=\mathop{argmax}\limits_{\theta}\sum_{i=1}^n lnp(x^{(i)},\theta)=\mathop{argmax}\limits_{\theta}\sum_{i=1}^n ln[\sum_{z^{(i)}}P(z^{(i)})p(x^{(i)},\theta|z^{(i)})] \\ =\mathop{argmax}\limits_{\theta}\sum_{i=1}^n ln[\sum_{z^{(i)}}p(x^{(i)},z^{(i)},\theta)]$ 
 
-Then transform $\hat{\theta}$, $\hat{\theta}=\mathop{argmax}\limits_{\theta}\sum_{i=1}^n ln[\sum_{z^{(i)}}Q_i(z^{(i)})\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)} )}]$ , from $Jensen$ inequality, if $f^{''}(x)\geq0$, there is $Ef(x)\geq f(Ex),(lnx)^{''}=-\frac{1}{x^2}<0, Elnx \leq ln(Ex)$, it can be seen that $\sum_{z^{(i)}}Q_i(z^{(i)})\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$ is the expectation of $\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$ about $z^{(i)}$.
+Then transform $\hat{\theta}$, $\hat{\theta}=\mathop{argmax}\limits_{\theta}\sum_{i=1}^n ln[\sum_{z^{(i)}}Q_i(z^{(i)})\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)} )}]$ , from $Jensen$ inequality, if $f^{''}(x)\geq0$, there is $ Ef(x)\geq f(Ex),(lnx)^{''}=-\frac{1}{x^2}<0, Elnx \leq ln(Ex) $, it can be seen that $\sum_{z^{(i)}}Q_i(z^{(i)})\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$ is the expectation of $\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$ about $z^{(i)}$.
 
 
 
