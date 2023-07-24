@@ -211,15 +211,15 @@ The first point can be solved by the $Python$ $OS$ library. The second point is 
 
 We can use $XGboost$ to train with the marked data set, and get the sound feature weight order of the ability to distinguish between male and female voices:
 
-![image-20221021123741432](C:\Users\56966\AppData\Roaming\Typora\typora-user-images\image-20221021123741432.png)
+![](/Pic/1.jpg)
 
 It can be seen that the sound features $meanfun$ and $IQR$ have a greater contribution to distinguishing gender. For other independent variables, it is necessary to observe whether there is multicollinearity:
 
-![image-20221021124819112](C:\Users\56966\AppData\Roaming\Typora\typora-user-images\image-20221021124819112.png)
+![](/Pic/2.jpg)
 
 Considering the contribution and correlation coefficient comprehensively, we choose $meanfun$, $IQR$ as independent variables of voice characteristics, $meanfun$ as the fundamental frequency value, the fundamental frequency value of boys is about $0\sim150hz$, and the fundamental frequency value of girls is about $100\sim500hz$, the fundamental frequency can well distinguish male and female voices; $IQR$ is the interquartile range of sound frequency, which reflects the frequency distribution of frequency extreme values.
 
-![image-20221021131202035](C:\Users\56966\AppData\Roaming\Typora\typora-user-images\image-20221021131202035.png)
+![](/Pic/3.jpg)
 
 The picture above is a **spectrum** of a randomly selected sound. It is an image based on **Short-Time Fourier Transform (STFT)** that brings together three types of information: **Frequency**, **Time** and **Amplitude**. The horizontal axis represents time, the vertical axis represents frequency, and the color of the frequency line represents energy (reflecting amplitude). The logarithmic scale is used here.
 
