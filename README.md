@@ -31,7 +31,7 @@ $ \hat{\theta}=\mathop{argmax}\limits_{\theta} \sum_{i=1}^n \sum_{z^{(i)}}Q_i(z^
 
 但注意，我们这里是当且仅当$Jensen$不等式成立时，也就是$P(X=EX)=1$，即认为$X$为常数时，放到这里也就是$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$（$c$为常数），$ L(\theta)=\sum_{i=1}^n ln[E\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}]\geq\sum_{i=1}^n Eln\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$，若我们最大化$L(\theta)$，通过最大化该式右半部分也就是最大化$L(\theta)$的下界，未必可以找到$L(\theta)$的最大值，除非等号成立，也就是$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$，这其实就是$EM$算法中的$E$步。
 
-若定义$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$，$ p(x^{(i)},z^{(i)},\theta)=c\ast Q_i(z^{(i)})$，两边对$z^{(i)}$求和，$\therefore \sum_{z^{(i)}}p(x^{(i)},z^{(i)},\theta)=c\ast \sum_{z^{(i)}}Q_i(z^{(i)})=c$
+若定义$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$，$p(x^{(i)},z^{(i)},\theta)=c\ast Q_i(z^{(i)})$，两边对$z^{(i)}$求和，$\therefore \sum_{z^{(i)}}p(x^{(i)},z^{(i)},\theta)=c\ast \sum_{z^{(i)}}Q_i(z^{(i)})=c$
 
 $ \frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=\sum_{z^{(i)}}p(x^{(i)},z^{(i)},\theta) , Q_i(z^{(i)})=\frac{p(x^{(i)},z^{(i)},\theta)}{\sum_{z^{(i)}}p(x^{(i)},z^{(i)},\theta)}=\frac{p(x^{(i)},z^{(i)},\theta)}{\sum_{z^{(i)}}p(z^{(i)})p(x^{(i)},\theta|z^{(i)})}=p(z^{(i)}|x^{(i)},\theta)$
 
