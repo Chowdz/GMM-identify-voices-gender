@@ -17,7 +17,7 @@ $\hat{\theta}=\mathop{argmax}\limits_{\theta}L(\theta)=\mathop{argmax}\limits_{\
 
 $\hat{\theta}=\mathop{argmax}\limits_{\theta}\sum_{i=1}^n lnp(x^{(i)},\theta)=\mathop{argmax}\limits_{\theta}\sum_{i=1}^n ln[\sum_{z^{(i)}}P(z^{(i)})p(x^{(i)},\theta|z^{(i)})] \\ =\mathop{argmax}\limits_{\theta}\sum_{i=1}^n ln[\sum_{z^{(i)}}p(x^{(i)},z^{(i)},\theta)]$ 
 
-那么将$\hat{\theta}$作变换，有$\hat{\theta}=\mathop{argmax}\limits_{\theta}\sum_{i=1}^n ln[\sum_{z^{(i)}}Q_i(z^{(i)})\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}]$ ，由$Jensen$不等式可知，若$f^{''}(x)\geq0$，有$Ef(x)\geq f(Ex),\because(lnx)^{''}=-\frac{1}{x^2}<0,\therefore Elnx \leq ln(Ex)$，可以看出$\sum_{z^{(i)}}Q_i(z^{(i)})\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$就是$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$的关于$z^{(i)}$的期望。
+那么将$\hat{\theta}$作变换，有$\hat{\theta}=\mathop{argmax}\limits_{\theta}\sum_{i=1}^n ln[\sum_{z^{(i)}}Q_i(z^{(i)})\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}]$ ，由$Jensen$不等式可知，若$f^{''}(x)\geq0$，有$Ef(x)\geq f(Ex),(lnx)^{''}=-\frac{1}{x^2}<0,\therefore Elnx \leq ln(Ex)$，可以看出$\sum_{z^{(i)}}Q_i(z^{(i)})\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$就是$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$的关于$z^{(i)}$的期望。
 
 
 
@@ -29,7 +29,7 @@ $\therefore \hat{\theta}=\mathop{argmax}\limits_{\theta} \Big[\sum_{i=1}^n \sum_
 
 $\therefore \hat{\theta}=\mathop{argmax}\limits_{\theta} \sum_{i=1}^n \sum_{z^{(i)}}Q_i(z^{(i)})lnp(x^{(i)},z^{(i)},\theta)$
 
-但注意，我们这里是当且仅当$Jensen$不等式成立时，也就是$P(X=EX)=1$，即认为$X$为常数时，放到这里也就是$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$（$c$为常数），$\because L(\theta)=\sum_{i=1}^n ln[E\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}]\geq\sum_{i=1}^n Eln\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$，若我们最大化$L(\theta)$，通过最大化该式右半部分也就是最大化$L(\theta)$的下界，未必可以找到$L(\theta)$的最大值，除非等号成立，也就是$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$，这其实就是$EM$算法中的$E$步。
+但注意，我们这里是当且仅当$Jensen$不等式成立时，也就是$P(X=EX)=1$，即认为$X$为常数时，放到这里也就是$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$（$c$为常数），$ L(\theta)=\sum_{i=1}^n ln[E\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}]\geq\sum_{i=1}^n Eln\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}$，若我们最大化$L(\theta)$，通过最大化该式右半部分也就是最大化$L(\theta)$的下界，未必可以找到$L(\theta)$的最大值，除非等号成立，也就是$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$，这其实就是$EM$算法中的$E$步。
 
 若定义$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$，$\therefore p(x^{(i)},z^{(i)},\theta)=c\ast Q_i(z^{(i)})$，两边对$z^{(i)}$求和，$\therefore \sum_{z^{(i)}}p(x^{(i)},z^{(i)},\theta)=c\ast \sum_{z^{(i)}}Q_i(z^{(i)})=c$
 
@@ -51,7 +51,7 @@ $\therefore$当且仅当$\frac{p(x^{(i)},z^{(i)},\theta)}{Q_i(z^{(i)})}=c$，即
 
 即要证明$L(\theta,\theta^{j+1})\geq L(\theta,\theta^j)$就能说明每次$L(\theta,\theta^j)$都在变大。
 
-$\because L(\theta,\theta^{j})=\sum_{i=1}^n \sum_{z^{(i)}}p(z^{(i)}|x^{(i)},\theta^j)*lnp(x^{(i)},z^{(i)},\theta),$ 	①
+$ L(\theta,\theta^{j})=\sum_{i=1}^n \sum_{z^{(i)}}p(z^{(i)}|x^{(i)},\theta^j)*lnp(x^{(i)},z^{(i)},\theta),$ 	①
 
 定义$H(\theta,\theta^{j})=\sum_{i=1}^n \sum_{z^{(i)}}p(z^{(i)}|x^{(i)},\theta^j)*lnp(z^{(i)}|x^{(i)},\theta),$ 	②
 
@@ -65,13 +65,13 @@ $L(\theta,\theta^{j})-H(\theta,\theta^{j})=\sum_{i=1}^n \sum_{z^{(i)}}p(z^{(i)}|
 
 $\therefore \sum_{i=1}^n lnp(x^{(i)},\theta^{j+1})-\sum_{i=1}^n lnp(x^{(i)},\theta^j)=[L(\theta^{j+1},\theta^{j})-H(\theta^{j+1},\theta^{j})]-[L(\theta^j,\theta^{j})-H(\theta^j,\theta^{j})] \\ =[L(\theta^{j+1},\theta^{j})-L(\theta^j,\theta^{j})]-[H(\theta^{j+1},\theta^{j})-H(\theta^j,\theta^{j})]$
 
-定义前半部分为$A$，$A=L(\theta^{j+1},\theta^{j})-L(\theta^j,\theta^{j})$，$\because$从$\theta^j$代入到$L(\theta)$中，到$\theta^{j+1}$代入到$L(\theta)$，就是在不断极大化$L(\theta)$，属于$M$步，所以$L(\theta^{j+1},\theta^{j})$肯定大于$L(\theta^{j},\theta^{j})$，$\therefore A\geq0$
+定义前半部分为$A$，$A=L(\theta^{j+1},\theta^{j})-L(\theta^j,\theta^{j})$，$$从$\theta^j$代入到$L(\theta)$中，到$\theta^{j+1}$代入到$L(\theta)$，就是在不断极大化$L(\theta)$，属于$M$步，所以$L(\theta^{j+1},\theta^{j})$肯定大于$L(\theta^{j},\theta^{j})$，$\therefore A\geq0$
 
 定义后半部分为$B$，有$B=H(\theta^{j+1},\theta^{j})-H(\theta^j,\theta^{j})=\sum_{i=1}^n \sum_{z^{(i)}}p(z^{(i)}|x^{(i)},\theta^j)*lnp(z^{(i)}|x^{(i)},\theta^{j+1})-\sum_{i=1}^n \sum_{z^{(i)}}p(z^{(i)}|x^{(i)},\theta^j)*lnp(z^{(i)}|x^{(i)},\theta^j) \\ =\sum_{i=1}^n \sum_{z^{(i)}}p(z^{(i)}|x^{(i)},\theta^j)*ln \frac{p(z^{(i)}|x^{(i)},\theta^{j+1})}{p(z^{(i)}|x^{(i)},\theta^{j})}=\sum_{i=1}^n Eln \frac{p(z^{(i)}|x^{(i)},\theta^{j+1})}{p(z^{(i)}|x^{(i)},\theta^{j})}\leq\sum_{i=1}^n lnE \frac{p(z^{(i)}|x^{(i)},\theta^{j+1})}{p(z^{(i)}|x^{(i)},\theta^{j})} \\ =\sum_{i=1}^n ln\sum_{z^{(i)}}p(z^{(i)}|x^{(i)},\theta^j) \frac{p(z^{(i)}|x^{(i)},\theta^{j+1})}{p(z^{(i)}|x^{(i)},\theta^{j})}=\sum_{i=1}^n ln\sum_{z^{(i)}} p(z^{(i)}|x^{(i)},\theta^{j+1})=\sum_{i=1}^n ln1=0$
 
 $\big($上式中用到了$Jensen$不等式，$Elnx\leq ln(Ex)$ $\big)$，$\therefore B\leq0$
 
-$\because A\geq0,B\leq 0$，大于等于0的数减去小于等于0的数必大于等于0，$\therefore L(\theta,\theta^{j+1})\geq L(\theta,\theta^j)$，$\therefore$似然函数收敛
+$ A\geq0,B\leq 0$，大于等于0的数减去小于等于0的数必大于等于0，$\therefore L(\theta,\theta^{j+1})\geq L(\theta,\theta^j)$，$\therefore$似然函数收敛
 
 
 
@@ -147,7 +147,7 @@ $M$步为：
 
 首先，包含隐变量的、且取完对数的、并求导的样本似然函数为$S(x,\theta)= \sum_{i=1}^{n}\frac{\partial \sum_{z}p(z|x_i,\theta^j)*lnp(x_i,z,\theta)}{\partial \theta}$，我们称其为似然方程，<font color="#dd000">现在我们就要求出 $S(x,\theta)$的方差，即可衡量$EM$算法包含$\theta$信息的多少。这里注意，$p(z|x_i,\theta^j)$中的$\theta^j$和$lnp(x_i,z,\theta)$中的$\theta$是不一样的。</font>
 
-$\because E\big(S(x,\theta)\big)=\sum_{i=1}^n \sum_z p(z|x_i,\theta^j) \int_{-\infty}^{+\infty} \frac{\partial lnp(x_i,z,\theta)}{\partial \theta}p(x_i,z,\theta)dx=\sum_{i=1}^n \sum_z p(z|x_i,\theta^j)  \int_{-\infty}^{+\infty} \frac {1}{p(x_i,z,\theta)} \frac{\partial p(x_i,\theta)}{\partial \theta} p(x_i,\theta)dx$
+$ E\big(S(x,\theta)\big)=\sum_{i=1}^n \sum_z p(z|x_i,\theta^j) \int_{-\infty}^{+\infty} \frac{\partial lnp(x_i,z,\theta)}{\partial \theta}p(x_i,z,\theta)dx=\sum_{i=1}^n \sum_z p(z|x_i,\theta^j)  \int_{-\infty}^{+\infty} \frac {1}{p(x_i,z,\theta)} \frac{\partial p(x_i,\theta)}{\partial \theta} p(x_i,\theta)dx$
 
 $=\sum_{i=1}^n \sum_z p(z|x_i,\theta^j) \frac{\partial}{\partial \theta} \int_{-\infty}^{+\infty} p(x_i,z,\theta)dx$
 
@@ -159,4 +159,4 @@ $\therefore Var\big(S(x,\theta)\big)=E\big(S(x,\theta)\big)^2-[E\big(S(x,\theta)
 
 $\therefore Var\big(S(x,\theta)\big)=E\big(S(x,\theta)\big)^2=\sum_{i=1}^n E\bigg(\frac{\partial \sum_{z}p(z|x_i,\theta^j)*lnp(x_i,z,\theta)}{\partial \theta}\bigg)^2$，记$\sum_{z}p(z|x_i,\theta^j)$为$\alpha_i$，即代表各个分布的权重，则：
 
-<font color="#dd000">$Var\big(S(x,\theta)\big)=nE\bigg(\alpha_1 \frac{\partial lnp(x,z_1,\theta)}{\partial \theta} +\alpha_2 \frac{\partial lnp(x,z_2,\theta)}{\partial \theta} + ...+\alpha_n \frac{\partial lnp(x,z_n,\theta)}{\partial \theta}\bigg)^2=nI(\theta)$ 即为$EM$算法的似然方程的方差，其方差越大，即$I(\theta)$越大，则估计越好。</font>
+<font color="#dd000">$Var\big(S(x,\theta)\big)=nE\bigg(\alpha_1 \frac{\partial lnp(x,z_1,\theta)}{\partial \theta} +\alpha_2 \frac{\partial lnp(x,z_2,\theta)}{\partial \theta} + ...+\alpha_n \frac{\partial lnp(x,z_n,\theta)}{\partial \theta}\bigg)^2=nI(\theta)$ 即为$EM$算法的似然方程的方差，其方差越大，即$I(\theta)$越大，则估计越好。
